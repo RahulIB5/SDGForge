@@ -13,3 +13,16 @@
 ```bash
 git clone <your-repo>
 cd Tesseract
+
+```
+
+### 2. Backend running
+```bash
+uvicorn main:app --reload
+
+```
+
+### 1. Frontend runn
+```bash
+npm i 
+npm run dev
