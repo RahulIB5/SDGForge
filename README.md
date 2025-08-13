@@ -18,7 +18,7 @@ cd Tesseract
 
 ### 2. Backend running
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 
 ```
 

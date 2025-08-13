@@ -27,10 +27,8 @@ export const VoiceAssistant: React.FC = () => {
 
   const { speak, cancel: cancelSpeech, speaking } = useSpeechSynthesis();
   const { listen, listening, stop: stopListening } = useSpeechRecognition({
-    onResult: (result: string) => {
-      setInputText(result);
-    },
-    onError: (error) => {
+    onResult: (result: SpeechRecognitionResult) => setInputText(result[0].transcript),
+    onError: (error: unknown) => {
       console.error('Speech recognition error:', error);
       toast({
         title: "Speech Recognition Error",
@@ -99,7 +97,7 @@ export const VoiceAssistant: React.FC = () => {
     if (listening) {
       stopListening();
     } else {
-      listen();
+      listen({ lang: currentLanguage.code });
     }
   };
 
