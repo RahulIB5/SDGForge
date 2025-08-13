@@ -16,5 +16,12 @@
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
+  },
+  
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
-import { geminiService } from '@/services/geminiService';
+import { geminiService } from '@/services/geminiService'; // Make sure this path exists
 
 interface Language {
   code: string;
@@ -46,14 +46,13 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   const translateText = useCallback(async (text: string): Promise<string> => {
     if (currentLanguage.code === 'en') return text;
-    
     setIsTranslating(true);
     try {
       const translatedText = await geminiService.translateText(text, currentLanguage.name);
       return translatedText;
     } catch (error) {
       console.error('Translation failed:', error);
-      return text; // Return original text if translation fails
+      return text;
     } finally {
       setIsTranslating(false);
     }
