@@ -22,3 +22,29 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model FIR {
+  id                         Int      @id @default(autoincrement())
+  complainantName            String
+  email                      String
+  fatherName                 String?  
+  age                        Int?     
+  gender                     String?  
+  occupation                 String?  
+  address                    String?  
+  city                       String?  
+  state                      String?  
+  phoneNumber                String?  
+  incidentDate               String?  
+  incidentTime               String?  
+  incidentLocation           String?  
+  crimeType                  String?  
+  incidentDescription        String?  
+  urgencyLevel               String?  
+  witnessDetails             String?  
+  evidenceDetails            String?  
+  previousComplaint          Boolean? 
+  previousComplaintDetails   String?  
+  createdAt                  DateTime @default(now())
+}
+
+
